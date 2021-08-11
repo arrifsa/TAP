@@ -61,32 +61,25 @@ if(isset($_POST['signaturesubmit'])){
   // DEKRIPSI
     
     //insert to database
-    $sql = "INSERT INTO data ( kode, username, email, password, signature, file, encrypt, decrypt) 
-            VALUES ( :kode, :username, :email, :password, :signature, :file, :encrypt, :decrypt)";
+    $sql = 'INSERT INTO data ( kode, username, email, password, signature, file, encrypt, decrypt) VALUES ( :kode, :username, :email, :password, :signature, :file, :encrypt, :decrypt)';
+
+        //create PDO connection 
+      $stmt = $db->prepare($sql);
+
+      $stmt->execute([
+        'kode' => $kode,
+        'username' => $username,
+        'email' => $email,
+        'password' => $password,
+        'signature' => "signatures/".$signatureFileName,
+        'file' => $data,
+        'encrypt' => NULL,
+        'decrypt' => NULL
+      ]);
+
+      $msg = "<div class='alert alert-success'>Signature Uploaded</div>";
     
     // header("Location: result.php?code=$kode&imageX=$width&imageY=$height");  
-    try {    
-        //create PDO connection 
-        $stmt = $db->prepare($sql);
-
-        $params = array(
-            "kode" => $kode,
-            "username" => $username,
-            "password" => $password,
-            "email" => $email,
-            "signature" => "signatures/".$signatureFileName,
-            "file" => $data,
-            "encrypt" => "",
-            "decrypt" => ""
-        );
-        $saved = $stmt->execute($params);
-        var_dump($stmt);
-        //$msg = "<div class='alert alert-success'>Signature Uploaded</div>";
-        if($saved) echo "berhasil";
-    } catch(PDOException $e) {
-        //show error
-        die("Terjadi masalah: " . $e->getMessage());
-    }
 } 
 ?>
 

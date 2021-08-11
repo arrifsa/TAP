@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2021 at 02:14 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.3.29
+-- Waktu pembuatan: 11 Agu 2021 pada 09.35
+-- Versi server: 10.4.17-MariaDB
+-- Versi PHP: 7.4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,19 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data`
+-- Struktur dari tabel `data`
 --
 
 CREATE TABLE `data` (
-  `id` int(11) NOT NULL,
-  `kode` varchar(20) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `email` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `signature` varchar(20) NOT NULL,
-  `file` blob NOT NULL,
-  `encrypt` blob NOT NULL,
-  `descrypt` blob NOT NULL
+  `id` bigint(20) NOT NULL,
+  `kode` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `signature` varchar(255) DEFAULT NULL,
+  `file` blob DEFAULT NULL,
+  `encrypt` blob DEFAULT NULL,
+  `decrypt` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -44,20 +44,20 @@ CREATE TABLE `data` (
 --
 
 --
--- Indexes for table `data`
+-- Indeks untuk tabel `data`
 --
 ALTER TABLE `data`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `data`
+-- AUTO_INCREMENT untuk tabel `data`
 --
 ALTER TABLE `data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

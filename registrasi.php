@@ -47,9 +47,12 @@ if(isset($_POST['signaturesubmit'])){
         for($y = 0; $y < $height; $y++) {
             $rgb = imagecolorat($image, $x, $y);
             $colors = imagecolorsforindex($image, $rgb);
-            $alpha = $colors['alpha'];
+            // $alpha = $colors['alpha'];
+
         }
     }
+
+    $_SESSION['colors'] = $colors;
 
     // DEKRIPSI
 

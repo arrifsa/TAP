@@ -6,6 +6,8 @@
 	$sql  = "SELECT * FROM data WHERE kode='$code'";
 	$records = $db->query($sql);
 	$records->setFetchMode(PDO::FETCH_ASSOC);
+
+    var_dump($_SESSION['colors']);
 ?>
 
 <!DOCTYPE html>
